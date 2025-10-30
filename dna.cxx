@@ -41,10 +41,6 @@ size_t DNA::count() const {
     return std::bitset<nCode>(static_cast<unsigned long long>(codes)).count();
 #endif
 }
-
-// How many favored bits match between two DNAs.
-// We define "match" as positions where both have 1 (intersection), so
-// matchDNA = popcount(this->codes & other.codes).
 unsigned int DNA::matchDNA(const DNA& other) const {
 #if defined(__cpp_lib_bitops) || (defined(__GNUC__) && !defined(__clang__))
     return static_cast<unsigned int>(__builtin_popcount(
@@ -57,4 +53,4 @@ unsigned int DNA::matchDNA(const DNA& other) const {
 #endif
 }
 
-}   // namespace csen79
+}  
